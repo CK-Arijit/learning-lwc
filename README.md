@@ -1,0 +1,1 @@
+This repositiry is to learn the LWC.
