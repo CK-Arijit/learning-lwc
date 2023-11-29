@@ -1,0 +1,66 @@
+<template>
+    <div class="slds-p-around_medium">
+        <lightning-input type="text" label="Enter your first name" placeholder="Leo" minlength="2" required></lightning-input>
+    </div>
+    <div class="slds-p-around_medium">
+        <lightning-input type="text" label="Enter your last name" placeholder="Das" minlength="2" required></lightning-input>
+    </div>
+    <div class="slds-p-around_medium">
+    <lightning-combobox
+        name="Gender"
+        label="Gender"
+        value={selectedValue}
+        placeholder="Select an option"
+        options={options}
+        onchange={handlePicklistChange}
+        required
+    ></lightning-combobox>
+    </div>
+    <div class="slds-p-around_medium">
+        <lightning-input
+            label="Phone Number"
+            type="tel"
+            value={formattedPhoneNumber}
+            onchange={handlePhoneNumberChange}
+            required
+            pattern="[0-9]{10}"
+            message-when-pattern-mismatch="Please enter valid phone number"
+        ></lightning-input>
+    </div>
+    <div class="slds-p-around_medium">
+        <lightning-radio-group
+            name="radioGroup"
+            label="Select any one option to enter your valid identification number"
+            options={identificationOptions}
+            value={selectedOption}
+            onchange={handleRadioChange}
+        ></lightning-radio-group>
+    </div>
+    <template lwc:if={driverLicenseCheck}>
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Driver's License"
+                type="text"
+                value={driversLicense}
+                pattern="[A-Za-z0-9]{6,15}"
+                onchange={handleLicenseChange}
+                message-when-pattern-mismatch="Please enter valid driver license"
+                required
+            ></lightning-input>
+        </div>
+    </template>
+    <template lwc:elseif={medicareNumberCheck}>
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Medicare Number"
+                type="text"
+                value={medicareNumber}
+                pattern="[A-Za-z0-9]{6,15}"
+                onchange={handleMedicareChange}
+                message-when-pattern-mismatch="Please enter valid medicare number"
+                required
+            ></lightning-input>
+        </div>
+    </template>
+    <lightning-button label="Next" onclick={handleNext}></lightning-button>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:contract_line_outcome_data" size="small"></lightning-icon>
+            Complete the application form to avail loan
+        </h3>
+        <div slot="footer" class="card-footer">
+            <lightning-button label="Back" icon-name="utility:back" icon-position="right" title="Back" class="back-button"></lightning-button>
+            <lightning-button label="Submit" title="Submit" class="slds-m-left_x-small" variant="brand-outline"></lightning-button>
+        </div>
+        <div class="slds-p-horizontal_small">
+            <c-application-steps-container></c-application-steps-container>
+        </div>
+    </lightning-card>
+</template>
