@@ -1,22 +1,3 @@
-.card-footer {
+.footer {
     display: flex;
-    justify-content: space-between;
-}
-
-.back-button {
-    display: flex;
-    flex-flow: row-reverse;
-    align-items: center;
-    justify-content: center;
-}
-
-.back-button lightning-primitive-icon {
-    width: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.back-button lightning-primitive-icon svg {
-    margin: 0;
 }

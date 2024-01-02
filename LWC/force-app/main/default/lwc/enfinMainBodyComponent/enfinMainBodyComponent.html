@@ -1,0 +1,28 @@
+<template>
+    <div class="parentContainer">
+        <div class="pb-2 primaryHeadingTitle">Personal Information</div>
+        <lightning-input type="text" label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
+        <lightning-input type="text" label="Last Name" value={lastName} onchange={handleLastNameChange}></lightning-input>
+        <lightning-input type="text" label="Mobile Number" value={mobileNumber} onchange={handleMobileNoChange}></lightning-input>
+        <lightning-input type="text" label="Email Address" value={email} onchange={handleEmailChange}></lightning-input>
+        <lightning-input type="text" label="Primary Address" value={primaryAddress} onchange={handleAddressChange}></lightning-input>
+        <lightning-input type="text" label="City" value={city} onchange={handleCityChange}></lightning-input>
+        <lightning-combobox
+            label="State"
+            options={options}
+            onchange={handlePicklistChange}
+            value={state}
+        ></lightning-combobox>
+        <lightning-input type="text" label="Zip Code" value={zipCode} onchange={handleZipCodeChange}></lightning-input>
+        <div class="pt-2">
+            <lightning-checkbox-group name="Checkbox Group"
+                                    label="I/we give my/our express written consent for EnFin Corp to share my/our application information (including my/our email address(es) and phone number(s)) with it’s business partners, including Hatch Bank, for those business partners to offer me/us products and services that may fit my/our financial needs, pursuant to EnFin Corp’s Privacy Policy."
+                                    options={disclosureOptions}
+                                    value={optionSelected}
+                                    onchange={handleDisclosureChange}></lightning-checkbox-group>
+        </div>
+        <div class="pt-2">
+            <lightning-button label="Submit" title="Submit"  class="primaryBtn"></lightning-button>
+        </div>
+    </div>
+</template>

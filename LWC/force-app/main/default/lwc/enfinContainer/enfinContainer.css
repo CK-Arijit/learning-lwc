@@ -1,0 +1,20 @@
+.bodyContainer {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    padding: 0 0rem 0 4rem;
+}
+
+.sideBar {
+    width: 20%;
+    position: fixed;
+    background-color: #fff;
+    top: 50px;
+}
+
+.mainBody {
+    width: 70%;
+    background-image: linear-gradient(#f7ecd2, #daf3f2);
+    margin-left: 32%;
+    padding: 65px;
+}
