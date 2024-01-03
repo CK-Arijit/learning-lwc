@@ -10,6 +10,8 @@ export default class EnfinMainBodyComponent extends LightningElement {
     @track city = '';
     @track zipCode = '';
     @track state = '';
+    @track loanAmount = '';
+    @track loanTerm = '';
 
     @track isChecked = false;
 
@@ -50,6 +52,17 @@ export default class EnfinMainBodyComponent extends LightningElement {
         { label: 'Texas', value: 'Texas' },
     ];
 
+    @track termOptions = [
+        {label: '10 years', value: '10 years'},
+        {label: '15 years', value: '15 years'},
+        {label: '20 years', value: '20 years'},
+        {label: '25 years', value: '25 years'}
+    ];
+
+    handleLoanTermChange(event) {
+        this.loanTerm = event.detail.value;
+    }
+
 
     handlePicklistChange(event) {
         this.state = event.detail.value;
@@ -82,5 +95,9 @@ export default class EnfinMainBodyComponent extends LightningElement {
 
     handleZipCodeChange(event) {
         this.zipCode = event.detail.value;
+    }
+
+    handleLoanAmountChange(event) {
+        this.loanAmount = event.detail.value;
     }
 }
