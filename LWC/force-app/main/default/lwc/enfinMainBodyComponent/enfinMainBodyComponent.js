@@ -1,4 +1,5 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
+import createEnfinRecord from '@salesforce/apex/EnfinCreateApp.createEnfinRecord';
 
 export default class EnfinMainBodyComponent extends LightningElement {
     @track optionSelected = [];
@@ -12,7 +13,6 @@ export default class EnfinMainBodyComponent extends LightningElement {
     @track state = '';
     @track loanAmount = '';
     @track loanTerm = '';
-
     @track isChecked = false;
 
     get disclosureOptions() {
@@ -100,4 +100,51 @@ export default class EnfinMainBodyComponent extends LightningElement {
     handleLoanAmountChange(event) {
         this.loanAmount = event.detail.value;
     }
+
+  
+    saveButtonAction(event) {
+        console.log('Hello World');
+        let myMap = [
+            {
+                'firstName': this.firstName
+            },
+            {
+                'lastName': this.lastName
+            },
+            {
+                'mobileNumber': this.mobileNumber
+            },
+            {
+                'email': this.email
+            },
+            {
+                'primaryAddress': this.primaryAddress
+            },
+            {
+                'city': this.city
+            },
+            {
+                'state': this.state
+            },
+            {
+                'zipCode': this.zipCode
+            },
+            {
+                'loanAmount': this.loanAmount
+            },
+            {
+                'loanTerm': this.loanTerm
+            },
+        ];
+        console.log('123123123');
+        const data = JSON.stringify(myMap);
+        console.log(data);
+        createEnfinRecord({requestData: data})
+        .then(result => {
+            console.log(result);
+        }).catch(error => {
+            console.error(error);
+        }) 
+    }
+
 }
