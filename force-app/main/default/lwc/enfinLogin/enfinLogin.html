@@ -1,0 +1,50 @@
+<!--
+  @Company           : Cloudkaptan Consultancy Services Pvt. Ltd.
+  @description       : This is used to
+  @author            : Wasim Iqbal
+  @group             : 
+  @last modified on  : 01-08-2024
+  @last modified by  : Wasim Iqbal
+  Modifications Log
+  Ver   Date         Author        Modification
+  1.0   01-08-2024   Wasim Iqbal   Initial Version
+-->
+<template>
+  <div class="submit-form slds-var-p-around_xx-large">
+    <lightning-card>
+      <div
+        class="slds-var-p-around_xx-large slds-align_absolute-center slds-var-p-around_xx-large slds-text-heading_large"
+      >
+        EnFin Login
+      </div>
+      <lightning-input required
+        type="text"
+        name="email"
+        label="Email"
+        onchange={handleInput}
+        message-when-value-missing="Please enter a valid Email"
+        class="slds-col slds-size_1-of-3 slds-var-p-vertical_medium"
+      ></lightning-input>
+      <lightning-input
+        required
+        min-length="8"
+        name="password"
+        type="password"
+        label="Password"
+        onchange={handleInput}
+        message-when-value-missing="Please enter a valid Password"
+        class="slds-col slds-size_1-of-3 slds-var-p-vertical_medium"
+      ></lightning-input>
+      <div
+        class="slds-var-p-around_xx-large slds-align_absolute-center slds-var-p-around_xx-large"
+      >
+        <lightning-button
+          variant="brand-outline"
+          name="login"
+          label="Login"
+          onclick={handleLogin}
+        ></lightning-button>
+      </div>
+    </lightning-card>
+  </div>
+</template>
