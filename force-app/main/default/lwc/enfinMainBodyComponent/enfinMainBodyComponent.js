@@ -107,19 +107,19 @@ export default class EnfinMainBodyComponent extends LightningElement {
   @track termOptions = [
     {
       label: "10 years",
-      value: "10 years",
+      value: "10",
     },
     {
       label: "15 years",
-      value: "15 years",
+      value: "15",
     },
     {
       label: "20 years",
-      value: "20 years",
+      value: "20",
     },
     {
       label: "25 years",
-      value: "25 years",
+      value: "25",
     },
   ];
 
@@ -182,38 +182,18 @@ export default class EnfinMainBodyComponent extends LightningElement {
     if (inputFieldInvalid) {
       return;
     }
-    let myMap = [
-      {
-        firstName: this.firstName,
-      },
-      {
-        lastName: this.lastName,
-      },
-      {
-        mobileNumber: this.mobileNumber,
-      },
-      {
-        email: this.email,
-      },
-      {
-        primaryAddress: this.primaryAddress,
-      },
-      {
-        city: this.city,
-      },
-      {
-        state: this.state,
-      },
-      {
-        zipCode: this.zipCode,
-      },
-      {
-        loanAmount: this.loanAmount,
-      },
-      {
-        loanTerm: this.loanTerm,
-      },
-    ];
+    let myMap = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      mobileNumber: this.mobileNumber,
+      email: this.email,
+      primaryAddress: this.primaryAddress,
+      city: this.city,
+      state: this.state,
+      zipCode: this.zipCode,
+      loanAmount: this.loanAmount,
+      loanTerm: this.loanTerm,
+    };
     const data = JSON.stringify(myMap);
     console.log(data);
     createEnfinRecord({
