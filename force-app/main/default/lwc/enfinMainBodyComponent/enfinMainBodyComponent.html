@@ -4,94 +4,30 @@
   @author            : Wasim Iqbal
   @group             : 
   @last modified on  : 01-09-2024
-  @last modified by  : Wasim Iqbal 
+  @last modified by  : Wasim Iqbal
   Modifications Log
   Ver   Date         Author        Modification
   1.0   01-09-2024   Wasim Iqbal   Initial Version
 -->
 <template>
-  <div class="parentContainer">
-    <div class="pb-2 primaryHeadingTitle">Personal Information</div>
-    <lightning-input
-      type="text"
-      label="First Name"
-      value="{firstName}"
-      onchange="{handleFirstNameChange}"
-    ></lightning-input>
-    <lightning-input
-      type="text"
-      label="Last Name"
-      value="{lastName}"
-      onchange="{handleLastNameChange}"
-    ></lightning-input>
-    <lightning-input
-      type="text"
-      label="Mobile Number"
-      value="{mobileNumber}"
-      onchange="{handleMobileNoChange}"
-    ></lightning-input>
-    <lightning-input
-      type="text"
-      label="Email Address"
-      value="{email}"
-      onchange="{handleEmailChange}"
-    ></lightning-input>
-    <lightning-input
-      type="text"
-      label="Primary Address"
-      value="{primaryAddress}"
-      onchange="{handleAddressChange}"
-    ></lightning-input>
-    <lightning-input
-      type="text"
-      label="City"
-      value="{city}"
-      onchange="{handleCityChange}"
-    ></lightning-input>
-    <lightning-combobox
-      label="State"
-      options="{options}"
-      onchange="{handlePicklistChange}"
-      value="{state}"
-    ></lightning-combobox>
-    <lightning-input
-      type="text"
-      label="Zip Code"
-      value="{zipCode}"
-      onchange="{handleZipCodeChange}"
-    ></lightning-input>
-    <div class="pb-2 pt-2 primaryHeadingTitle">Loan Information</div>
-    <lightning-input
-      type="number"
-      name="loanAmount"
-      label="Loan Amount"
-      value="{loanAmount}"
-      formatter="currency"
-      step="0.01"
-      onchange="{handleLoanAmountChange}"
-    ></lightning-input>
-    <lightning-combobox
-      label="Loan Term"
-      options="{termOptions}"
-      onchange="{handleLoanTermChange}"
-      value="{term}"
-    ></lightning-combobox>
-    <div class="pt-2">
-      <lightning-checkbox-group
-        name="Checkbox Group"
-        label="I/we give my/our express written consent for EnFin Corp to share my/our application information (including my/our email address(es) and phone number(s)) with it’s business partners, including Hatch Bank, for those business partners to offer me/us products and services that may fit my/our financial needs, pursuant to EnFin Corp’s Privacy Policy."
-        options="{disclosureOptions}"
-        value="{optionSelected}"
-        onchange="{handleDisclosureChange}"
-      ></lightning-checkbox-group>
+    <div class="parentContainer">
+      <div class="pb-2 primaryHeadingTitle">Personal Information</div>
+      <lightning-input required type="text" pattern={namePattern} label="First Name" value={firstName} onchange={handleFirstNameChange} message-when-value-missing="Please enter a first name" message-when-pattern-mismatch="Please enter a valid first name"></lightning-input>
+      <lightning-input required type="text" pattern={namePattern} label="Last Name" value={lastName} onchange={handleLastNameChange} message-when-value-missing="Please enter a last name"></lightning-input>
+      <lightning-input required type="tel" label="Mobile Number" value={mobileNumber} onchange={handleMobileNoChange} message-when-value-missing="Please enter a phone number" message-when-pattern-mismatch="Please enter a valid phone number"></lightning-input>
+      <lightning-input required type="email" label="Email Address" value={email} onchange={handleEmailChange} message-when-value-missing="Please enter a email" message-when-bad-input="Please enter a valid email"></lightning-input>
+      <lightning-input type="text" label="Primary Address" value={primaryAddress} onchange={handleAddressChange}></lightning-input>
+      <lightning-input type="text" label="City" value={city} onchange={handleCityChange} ></lightning-input>
+      <lightning-combobox required label="State" options={options} onchange={handlePicklistChange} value={state} message-when-value-missing="Please select a state"></lightning-combobox>
+      <lightning-input required type="number" label="Zip Code" value={zipCode} onchange={handleZipCodeChange} min-length="5" max-length="10" message-when-too-short="Please enter a valid zip code" message-when-too-long="Please enter a valid zip code" message-when-value-missing="Please enter a zip code"></lightning-input>
+      <div class="pb-2 pt-2 primaryHeadingTitle">Loan Information</div>
+      <lightning-input required type="number" name="loanAmount" label="Loan Amount" value={loanAmount} formatter="currency" step="0.01" onchange={handleLoanAmountChange} min="500" message-when-value-missing="Please enter a loan amount" message-when-range-underflow="Minimum Loan Amount should be more than $500"></lightning-input>
+      <lightning-combobox required label="Loan Term" options={termOptions} onchange={handleLoanTermChange} value={term} message-when-value-missing="Please select a loan term"></lightning-combobox>
+      <div class="pt-2">
+        <lightning-checkbox-group name="Checkbox Group" label="I/we give my/our express written consent for EnFin Corp to share my/our application information (including my/our email address(es) and phone number(s)) with it’s business partners, including Hatch Bank, for those business partners to offer me/us products and services that may fit my/our financial needs, pursuant to EnFin Corp’s Privacy Policy." options={disclosureOptions} value={optionSelected} onchange={handleDisclosureChange}></lightning-checkbox-group>
+      </div>
+      <div class="pt-2">
+        <lightning-button label="Submit" title="Submit" class="primaryBtn" onclick={saveButtonAction} disabled={unChecked}></lightning-button>
+      </div>
     </div>
-    <div class="pt-2">
-      <lightning-button
-        label="Submit"
-        title="Submit"
-        class="primaryBtn"
-        onclick="{saveButtonAction}"
-      ></lightning-button>
-    </div>
-  </div>
-</template>
+  </template>
