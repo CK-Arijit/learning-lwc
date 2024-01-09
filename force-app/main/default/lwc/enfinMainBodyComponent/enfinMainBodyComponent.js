@@ -3,6 +3,7 @@ import createEnfinRecord from "@salesforce/apex/EnfinCreateApp.createEnfinRecord
 
 export default class EnfinMainBodyComponent extends LightningElement {
   namePattern = "^[a-zA-Z ]+$";
+  zipPattern = "^[0-9]*$";
   @track optionSelected = [];
   @track firstName = "";
   @track lastName = "";

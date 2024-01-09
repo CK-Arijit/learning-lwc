@@ -16,7 +16,7 @@ global without sharing class EnFinLoginController {
         Map<String,String> loginCredMap = (Map<String,String>)JSON.deserialize(requestData, Map<String,String>.class);  
         ApexPages.PageReference pageRef = Site.login(loginCredMap.get('email'),
                                             loginCredMap.get('password'),
-                                            'cloudkaptan88-dev-ed.develop.my.site.com/testing'
+                                            'cloudkaptan88-dev-ed.develop.my.site.com/demoB'
                                         );
 
     return pageRef.getUrl();
