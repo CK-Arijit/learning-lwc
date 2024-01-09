@@ -2,7 +2,6 @@ import { LightningElement, track, wire } from "lwc";
 import createEnfinRecord from "@salesforce/apex/EnfinCreateApp.createEnfinRecord";
 
 export default class EnfinMainBodyComponent extends LightningElement {
-  namePattern = "^[a-zA-Z ]+$";
   @track optionSelected = [];
   @track firstName = "";
   @track lastName = "";
@@ -14,7 +13,7 @@ export default class EnfinMainBodyComponent extends LightningElement {
   @track state = "";
   @track loanAmount = "";
   @track loanTerm = "";
-  @track unChecked = true;
+  @track isChecked = false;
 
   get disclosureOptions() {
     return [
@@ -29,97 +28,37 @@ export default class EnfinMainBodyComponent extends LightningElement {
   handleDisclosureChange(e) {
     this.optionSelected = e.detail.value;
     if (this.optionSelected.length > 0) {
-      this.unChecked = false;
+      this.isChecked = true;
     } else {
-      this.unChecked = true;
+      this.isChecked = false;
     }
-    console.log(this.unChecked);
+    console.log(this.isChecked);
   }
 
   @track options = [
-    {
-      label: "Alabama",
-      value: "Alabama",
-    },
-    {
-      label: "Alaska",
-      value: "Alaska",
-    },
-    {
-      label: "Arizona",
-      value: "Arizona",
-    },
-    {
-      label: "Arkansas",
-      value: "Arkansas",
-    },
-    {
-      label: "California",
-      value: "California",
-    },
-    {
-      label: "Colorado",
-      value: "Colorado",
-    },
-    {
-      label: "Connecticut",
-      value: "Connecticut",
-    },
-    {
-      label: "Delaware",
-      value: "Delaware",
-    },
-    {
-      label: "Florida",
-      value: "Florida",
-    },
-    {
-      label: "Georgia",
-      value: "Georgia",
-    },
-    {
-      label: "Hawaii",
-      value: "Hawaii",
-    },
-    {
-      label: "Idaho",
-      value: "Idaho",
-    },
-    {
-      label: "Utah",
-      value: "Utah",
-    },
-    {
-      label: "Wisconsin",
-      value: "Wisconsin",
-    },
-    {
-      label: "Puerto Rico",
-      value: "Puerto Rico",
-    },
-    {
-      label: "Texas",
-      value: "Texas",
-    },
+    { label: "Alabama", value: "Alabama" },
+    { label: "Alaska", value: "Alaska" },
+    { label: "Arizona", value: "Arizona" },
+    { label: "Arkansas", value: "Arkansas" },
+    { label: "California", value: "California" },
+    { label: "Colorado", value: "Colorado" },
+    { label: "Connecticut", value: "Connecticut" },
+    { label: "Delaware", value: "Delaware" },
+    { label: "Florida", value: "Florida" },
+    { label: "Georgia", value: "Georgia" },
+    { label: "Hawaii", value: "Hawaii" },
+    { label: "Idaho", value: "Idaho" },
+    { label: "Utah", value: "Utah" },
+    { label: "Wisconsin", value: "Wisconsin" },
+    { label: "Puerto Rico", value: "Puerto Rico" },
+    { label: "Texas", value: "Texas" },
   ];
 
   @track termOptions = [
-    {
-      label: "10 years",
-      value: "10 years",
-    },
-    {
-      label: "15 years",
-      value: "15 years",
-    },
-    {
-      label: "20 years",
-      value: "20 years",
-    },
-    {
-      label: "25 years",
-      value: "25 years",
-    },
+    { label: "10 years", value: "10 years" },
+    { label: "15 years", value: "15 years" },
+    { label: "20 years", value: "20 years" },
+    { label: "25 years", value: "25 years" },
   ];
 
   handleLoanTermChange(event) {
@@ -164,23 +103,7 @@ export default class EnfinMainBodyComponent extends LightningElement {
   }
 
   saveButtonAction(event) {
-    let inputFieldInvalid = false;
-    this.template.querySelectorAll("lightning-input").forEach((inputComp) => {
-      if (!inputComp.reportValidity()) {
-        inputFieldInvalid = true;
-      }
-    });
-    this.template
-      .querySelectorAll("lightning-combobox")
-      .forEach((inputComp) => {
-        if (!inputComp.reportValidity()) {
-          inputFieldInvalid = true;
-        }
-      });
-
-    if (inputFieldInvalid) {
-      return;
-    }
+    console.log("Hello World");
     let myMap = [
       {
         firstName: this.firstName,
@@ -213,11 +136,10 @@ export default class EnfinMainBodyComponent extends LightningElement {
         loanTerm: this.loanTerm,
       },
     ];
+    console.log("123123123");
     const data = JSON.stringify(myMap);
     console.log(data);
-    createEnfinRecord({
-      requestData: data,
-    })
+    createEnfinRecord({ requestData: data })
       .then((result) => {
         console.log(result);
       })

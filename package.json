@@ -3,5 +3,13 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.2"
+  },
+  "scripts": {
+    "test:unit": "sfdx-lwc-jest",
+    "test:unit:debug": "sfdx-lwc-jest --debug",
+    "test:unit:watch": "sfdx-lwc-jest --watch"
+  },
+  "devDependencies": {
+    "@salesforce/sfdx-lwc-jest": "^3.1.0"
   }
 }
