@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LeoA0wpAAAAANQjOvZQCj3sYrPEI7MfUjdzohJZ"></script>
+    </head>
+    <body>
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse"/>
+        <script type="text/javascript">
+            grecaptcha.ready(function() {
+                var reCAPTCHA_site_key = "6LeoA0wpAAAAANQjOvZQCj3sYrPEI7MfUjdzohJZ";
+                grecaptcha.execute(reCAPTCHA_site_key, {action: 'submit'}).then(function(token) {
+                    recaptchaResponse.value = token;
+                    if (token == "") {
+                        parent.postMessage({ action: "getCAPCAH", callCAPTCHAResponse : "NOK"}, "*");
+                    } else {
+                        parent.postMessage({ action: "getCAPCAH", callCAPTCHAResponse : token}, "*");
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

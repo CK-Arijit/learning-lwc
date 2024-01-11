@@ -47,6 +47,10 @@
               </div>
         </div>
      </div>
+     <iframe class="customIframeCss" src={navigateTo} name="captchaFrame" onload={captchaLoaded}></iframe>
+     <template if:true={showLoader}>
+      <c-simple-loader> </c-simple-loader>
+    </template>
   </div>
-  <c-simple-loader> </c-simple-loader>
+  
 </template>
