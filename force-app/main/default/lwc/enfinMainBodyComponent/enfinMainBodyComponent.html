@@ -14,7 +14,7 @@
       <div class="pb-2 primaryHeadingTitle">Personal Information</div>
       <lightning-input required type="text" pattern={namePattern} label="First Name" value={firstName} onchange={handleFirstNameChange} message-when-value-missing="Please enter a first name" message-when-pattern-mismatch="Please enter a valid first name"></lightning-input>
       <lightning-input required type="text" pattern={namePattern} label="Last Name" value={lastName} onchange={handleLastNameChange} message-when-value-missing="Please enter a last name"></lightning-input>
-      <lightning-input required type="tel" label="Mobile Number" value={mobileNumber} onchange={handleMobileNoChange} message-when-value-missing="Please enter a phone number" message-when-pattern-mismatch="Please enter a valid phone number"></lightning-input>
+      <lightning-input required type="tel" label="Mobile Number" pattern={zipPattern} value={mobileNumber} onchange={handleMobileNoChange} message-when-value-missing="Please enter a phone number" message-when-pattern-mismatch="Please enter a valid phone number"></lightning-input>
       <lightning-input required type="email" label="Email Address" value={email} onchange={handleEmailChange} message-when-value-missing="Please enter a email" message-when-bad-input="Please enter a valid email"></lightning-input>
       <lightning-input type="text" label="Primary Address" value={primaryAddress} onchange={handleAddressChange}></lightning-input>
       <lightning-input type="text" label="City" value={city} onchange={handleCityChange} ></lightning-input>
@@ -30,4 +30,7 @@
         <lightning-button label="Submit" title="Submit" class="primaryBtn" onclick={saveButtonAction} disabled={unChecked}></lightning-button>
       </div>
     </div>
+    <template if:true={showLoader}>
+      <c-simple-loader> </c-simple-loader>
+    </template>
   </template>

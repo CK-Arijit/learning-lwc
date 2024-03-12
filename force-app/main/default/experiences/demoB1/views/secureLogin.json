@@ -1,0 +1,58 @@
+{
+  "appPageId" : "9c613078-c4d3-4814-837e-00ce0ac57d68",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b035c929-f5b4-4d18-b85a-081356da600b",
+  "label" : "Secure Login",
+  "regions" : [ {
+    "id" : "0a5d1399-bc5e-438d-b6b1-3cc16e8bd431",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:enfinLogin",
+      "id" : "b0b89c01-06a7-4e86-a88f-50fa51f3621f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "145aa7b1-b468-40bb-a50e-f96baa078218",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:enfinLogin",
+      "id" : "ca12f753-72df-4d07-bd01-92225165e2bc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6646d0f5-34a3-4680-8330-d08377c2ee2f",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "af7ae44d-0239-4e02-a870-226c30a08c95",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Secure Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "69ea0a16-f8bd-4fbd-987c-0caef031bf2d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "57f94376-8dbd-40e6-8159-b1d02a8181fc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-login-portal"
+}
