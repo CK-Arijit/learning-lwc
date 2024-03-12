@@ -12,6 +12,16 @@ global without sharing class EnfinCreateApp {
         Double loanAmount;
         Integer loanTerm;
 
+        Id userId;
+
+        userId = UserInfo.getUserId();
+
+        List<User> userList = [SELECT id, name, AccountId, ContactId from User where id =: userId];
+
+        if(userList == null || userList.size() == 0) {
+            throw new AuraHandledException('The user is not yet authenticated.');
+        }
+
         Map<String, Object> applicationData = (Map<String, Object>) JSON.deserializeUntyped(requestData);
 
         firstName = String.valueOf(applicationData.get('firstName'));
@@ -26,30 +36,36 @@ global without sharing class EnfinCreateApp {
         loanTerm = Integer.valueOf(String.valueOf(applicationData.get('loanTerm')));
 
         
-        //Insert account
+        //Update account
         Account acc = new Account();
+        acc.id = userList[0].AccountId;
         acc.name = firstName + ' ' + lastName;
         acc.phone = mobileNumber;
         acc.BillingStreet = primaryAddress;
         acc.BillingCity = city;
         acc.BillingPostalCode = zipCode;
         acc.billingState = state;
-        insert acc;
+        update acc;
 
         //Insert Contact
         Contact con = new Contact();
+        con.id = userList[0].ContactId;
         con.firstName = firstName;
         con.lastName = lastName;
         con.email = email;
         con.accountId = acc.id;
-        insert con;
+        update con;
 
-        //Insert Contract
+        //Insert or update Contract
+        List<Contract> contractList = [SELECT id, AccountId from Contract WHERE AccountId =: userList[0].AccountId];
         Contract contract = new Contract();
-        contract.AccountId = acc.id;
+        if(contractList != null && contractList.size() > 0) {
+            contract.id = contractList[0].id;
+        }
+        contract.AccountId = userList[0].AccountId;
         contract.ContractTerm = loanTerm;
         contract.loan_amount__c = loanAmount;
-        insert contract;
+        upsert contract;
 
         return true;
     }

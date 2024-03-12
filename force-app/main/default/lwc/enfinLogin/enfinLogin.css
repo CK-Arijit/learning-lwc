@@ -56,3 +56,10 @@
     box-shadow: 0 1.5rem 4rem rgba(120, 120, 120, 0.15);
     padding: 40px 30px;
 }
+
+.customIframeCss {
+    border: 0 !important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

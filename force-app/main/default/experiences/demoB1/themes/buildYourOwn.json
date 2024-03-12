@@ -1,0 +1,126 @@
+{
+  "activeBrandingSetId" : "b78ed253-a4a9-410b-8995-029d4a8d58e7",
+  "customCSS" : ".siteforceStarterBody .cCenterPanel {\n    margin: 0 auto;\n    padding: 0;\n}\n\n.siteforceStarterBody .siteforceSldsOneColLayout.siteforceContentArea .slds-col--padded.contentRegion.comm-layout-column {\n    padding: 0;\n}\n\n.slds-form-element .slds-combobox__input.slds-input_faux {\n    border: 1px solid #e1e1e1;\n    border-radius: 5px;\n    outline: none;\n    padding: 6px 20px;\n    font-size: 16px;\n}\n\n.slds-input {\n    border: 1px solid #e1e1e1;\n    border-radius: 5px;\n    outline: none;\n    padding: 6px 20px;\n    font-size: 16px;\n}\n\nlightning-input {\n    padding-top: 1rem;\n}\n\nlightning-combobox {\n    padding-top: 1rem;\n}\n\nlightning-input label {\n    font-size: 15px;\n    font-size: 15px;\n    position: absolute;\n    top: 2px;\n    background: #fff;\n    z-index: 9;\n    left: 7px;\n    padding: 2px 5px;\n}\n\nlightning-combobox label {\n    font-size: 15px;\n    font-size: 15px;\n    position: absolute;\n    top: 2px;\n    background: #fff;\n    z-index: 9;\n    left: 7px;\n    padding: 2px 5px;\n}\n\ninput:focus {\n    outline: none;\n    box-shadow: 1px 2px 6px #cdcdcd;\n}\n\n.slds-combobox__input:focus, .slds-combobox__input.slds-has-focus {\n   outline: none;\n    box-shadow: 1px 2px 6px #cdcdcd; \n}\n\nlightning-input {\n    margin-top: 15px;\n}\n\nlightning-combobox {\n    margin-top: 15px;\n}\n\n.primaryBtn .slds-button {\n    width: 100%;\n    height: 100%;\n    border: none;\n    padding: 0;\n    background: transparent;\n        color: #001c77;\n}\n\nlightning-checkbox-group legend {\n    font-size: 13px !important;\n    font-weight: 300 !important;\n    color: #71747d !important;\n    padding-bottom: 2rem; \n}\n\nlightning-checkbox-group .slds-form-element__label {\n    font-size: 13px !important;\n    color: #71747d !important;\n}",
+  "developerName" : "starter",
+  "id" : "e8992aab-34ba-4398-81d2-7bf6ec207fbd",
+  "label" : "Build Your Own",
+  "layouts" : {
+    "Inner" : "b1e09e3f-d23b-4dfd-a0fb-d2d3b31423fa",
+    "Login" : "92acb4b4-bc8b-418e-b799-bdfed46bc249",
+    "ServiceNotAvailable" : "9419ca44-bc10-4d6a-a7e9-98196b659a21"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "92acb4b4-bc8b-418e-b799-bdfed46bc249",
+    "label" : "Login",
+    "regions" : [ {
+      "id" : "5a31a1b6-e170-40f3-9465-7bb68e8ccc0f",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "bc6b5653-a6c6-47c7-bbff-21dd1d731111",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "a24d00c7-dac7-45a4-ba5f-18df6235175c",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1440,
+      "isPageWidthFixed" : true
+    },
+    "componentName" : "siteforce:starterBody",
+    "id" : "b1e09e3f-d23b-4dfd-a0fb-d2d3b31423fa",
+    "label" : "Default",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "maxAutoCompleteResults" : 5,
+          "searchLabel" : "Search...",
+          "searchObjects" : [ {
+            "isPublic" : true,
+            "name" : "Account"
+          } ]
+        },
+        "componentName" : "forceCommunity:globalSearchInput",
+        "id" : "f06f714d-56af-42ad-bbeb-6aba734a41ba",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "98a15092-cbc3-4600-bbf1-73dac41a1dce",
+      "regionName" : "search",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "accountManagementLabel" : "Account Management",
+          "communityBuilderLabel" : "Experience Builder",
+          "communitySetupLabel" : "Salesforce Setup",
+          "contactSupportLabel" : "Contact Support",
+          "filterName" : "MyCases",
+          "homeLabel" : "Home",
+          "includeContactSupport" : true,
+          "includeMessages" : false,
+          "loginLabel" : "Login",
+          "logoutLabel" : "Logout",
+          "myAccountLabel" : "My Account",
+          "showAccountManagement" : true,
+          "showUserSettings" : true,
+          "userSettingsLabel" : "My Settings",
+          "viewProfileLabel" : "My Profile"
+        },
+        "componentName" : "selfService:userProfileMenu",
+        "id" : "9b8c6cb7-dc94-4dc3-aa13-ab9f07ae39d7",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "dcc5b1ff-de3a-4f50-bca8-77d1ec0a7f62",
+      "regionName" : "profileMenu",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "NavigationMenuEditorRefresh" : "",
+          "hideAppLauncher" : true,
+          "hideHomeText" : true
+        },
+        "componentName" : "forceCommunity:globalNavigation",
+        "id" : "dfb8a681-fc06-4b19-be7b-c1f3e9998732",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "9685dde2-2a83-438e-a867-b66f4db8b8ee",
+      "regionName" : "navBar",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1170,
+      "headerBgColor" : "rgba(0, 0, 0, 0)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "9419ca44-bc10-4d6a-a7e9-98196b659a21",
+    "label" : "ServiceNotAvailable",
+    "regions" : [ {
+      "id" : "f6fd7ed5-16fb-451a-808e-9be6e34cff40",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "id" : "6b17e281-3c34-4d6e-b064-52c43bea2a87",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}
